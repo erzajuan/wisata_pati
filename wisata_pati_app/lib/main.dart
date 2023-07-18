@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:wisata_pati_app/detail/bloc/detail_bloc.dart';
+import 'package:wisata_pati_app/detail/bloc/detail_event.dart';
 import 'package:wisata_pati_app/detail/pages/screens/detail_page.dart';
 
 void main() {
@@ -10,17 +13,16 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        title: 'Flutter Demo',
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ),
-        home: DetailPage(
-          description:
-              'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris porta arcu eget ultricies molestie. Aenean in fermentum nulla.',
-          destinationName: 'Wisata curug',
-          location: "Pati, Jawa Tengah",
-          imageUrl: 'https://www.wisataidn.com/tempat-wisata-di-pati/',
+    return BlocProvider<DetailBlocs>(
+        create: (BuildContext context) =>
+            DetailBlocs()..add(DetailLoadEvents()),
+        child: MaterialApp(
+          title: 'Persebaran UMKM',
+          theme: ThemeData(
+            primarySwatch: Colors.blue,
+          ),
+          debugShowCheckedModeBanner: false,
+          home: const DetailPage(),
         ));
   }
 }

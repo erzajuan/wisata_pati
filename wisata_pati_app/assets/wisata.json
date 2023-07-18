@@ -1,9 +1,11 @@
-[
+{
+  "status":"true",
+  "data": [
   {
     "id": "1",
-    "destinationName": "oke",
-    "description": "oke",
-    "location": "oke",
+    "destinationName": "Guci",
+    "description": "Guci Hot Springs: Destinasi wisata air panas alami di Jawa Tengah, Indonesia. Suasana alam yang menenangkan dengan pemandian air panas dan pemandangan yang indah.",
+    "location": "Tegal, Jawa Tengah",
     "map": "https://goo.gl/maps/rTsSkWpoXMMwXZNE6",
     "imageUrl": [
       "https://images.unsplash.com/photo-1520342868574-5fa3804e551c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6ff92caffcdd63681a35134a6770ed3b&auto=format&fit=crop&w=1951&q=80",
@@ -15,7 +17,6 @@
     ],
     "linkAr": "https://goo.gl/maps/rTsSkWpoXMMwXZNE6"
   },
-
   {
     "id": "2",
     "destinationName": "oke2",
@@ -32,5 +33,5 @@
     ],
     "linkAr": "https://goo.gl/maps/rTsSkWpoXMMwXZNE6"
   }
-
 ]
+}
