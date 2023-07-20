@@ -5,6 +5,8 @@ import 'package:wisata_pati_app/Navigation/bloc/navigator_bloc.dart';
 import 'package:wisata_pati_app/SplashScreen/bloc/splash_screen_bloc.dart';
 import 'package:wisata_pati_app/SplashScreen/view/splash_screen.dart';
 
+import 'list_wisata/Pages/Screens/ListWisataScreens.dart';
+
 void main() {
   runApp(const MyApp());
 }
