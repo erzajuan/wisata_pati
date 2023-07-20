@@ -15,7 +15,7 @@ class SplashScreen extends StatelessWidget {
           if (state is SplashScreenAuthenticated) {
             context
                 .read<NavigatorBloc>()
-                .add(NavigateToHalamanDuaTest(context));
+                .add(NavigateToHome(context));
           }
         },
         child: Center(

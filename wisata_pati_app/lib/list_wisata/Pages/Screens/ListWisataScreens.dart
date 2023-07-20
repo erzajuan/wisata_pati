@@ -1,87 +1,96 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-class ListWisataScreens extends StatelessWidget {
+import '../../../Navigation/bloc/navigator_bloc.dart';
+import '../../../detail/models/datum/datum.dart';
+import '../../bloc/ListWisataBloc.dart';
+import '../../bloc/ListWisataEvent.dart';
+import '../../bloc/ListWisataState.dart';
+
+class ListWisataScreens extends StatefulWidget {
   const ListWisataScreens({Key? key}) : super(key: key);
+
+  @override
+  State<ListWisataScreens> createState() => _ListWisataScreensState();
+}
+
+class _ListWisataScreensState extends State<ListWisataScreens> {
+  @override
+  initState() {
+    super.initState();
+    context.read<ListWisataBlocs>().add(ListWisataLoadEvents());
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("List Wisata")),
-      body: Center(
-        child: ListView.builder(
-          itemCount: 5,
-          itemBuilder: (context, index) {
-            return Card(
-              borderOnForeground: true,
-              shadowColor: Colors.black,
-              // surfaceTintColor: Colors.black,
-              // color: const Color(#193D7033),
-              //color #193D7033
-              color: const Color(0x00d2dbea),
-
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(40),
-              ),
-
-              child: Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Column(
-                  children: [
-                    Stack(
-                      children: [
-                        Positioned(
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(40),
-                            child: Image.network(
-                              "https://www.tripsavvy.com/thmb/lMkxZbsOt3L4co9_tUgsOHl9Vok=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/gunung-bromo-volcano-indonesia-108224973-5a7ebe0d6bf0690037337d61.jpg",
-                            ),
-                          ),
-                        ),
-                        Positioned(
-                          bottom: 0,
-                          right: 0,
-                          child: ClipRRect(
-                            // borderRadius: BorderRadius.circular(40),
-                            borderRadius: const BorderRadius.only(
-                                bottomRight: Radius.circular(30)),
-                            child: Container(
-                              height: MediaQuery.of(context).size.height * 0.075,
-                              width: MediaQuery.of(context).size.width * 0.5,
-                              decoration: const BoxDecoration(
-                                image: DecorationImage(
-                                  image:
-                                      AssetImage("assets/images/bg_diskon.png"),
-                                  fit: BoxFit.fill,
-                                ),
-                                // color: Colors.orange,
-                                borderRadius: BorderRadius.only(
-                                  // topRight: Radius.circular(20),
-                                  bottomLeft: Radius.circular(20),
-                                ),
+      body: BlocBuilder<ListWisataBlocs, ListWisataState>(
+        builder: (context, state) {
+          if (state is ListWisataLoadingState) {
+            return const Center(child: CircularProgressIndicator());
+          } else if (state is ListWisataLoadedState) {
+            return ListView.builder(
+              itemCount: state.data!.length,
+              itemBuilder: (context, index) {
+                List<Datum>? data = state.data;
+                final List<String> imageList = data![index].imageUrl;
+                return Container(
+                  margin: const EdgeInsets.fromLTRB(16, 8, 16, 8),
+                  child: InkWell(
+                    onTap: () {
+                      context
+                          .read<NavigatorBloc>()
+                          .add(NavigateToDetailWisata(context, index));
+                    },
+                    child: Card(
+                      shadowColor: Colors.black54,
+                      clipBehavior: Clip.antiAlias,
+                      elevation: 2,
+                      color: Colors.white,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(25),
+                      ),
+                      surfaceTintColor: Colors.white,
+                      child: Padding(
+                        padding: const EdgeInsets.all(20.0),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(25),
+                                boxShadow: const [
+                                  BoxShadow(
+                                      color: Colors.black54,
+                                      blurRadius: 10,
+                                      // blurStyle: BlurStyle.outer,
+                                      offset: Offset(0, 12)),
+                                ],
                               ),
-                              child: const Text(
-                                "Save 20%",
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.bold,
+                              child: ClipRRect(
+                                clipBehavior: Clip.antiAlias,
+                                borderRadius: BorderRadius.circular(25),
+                                child: Image.network(
+                                  imageList[0],
                                 ),
                               ),
                             ),
-                          ),
+                            const SizedBox(
+                              height: 20,
+                            ),
+                            Text("     ${data[index].destinationName}"),
+                          ],
                         ),
-                      ],
+                      ),
                     ),
-                    const Divider(
-                      height: 16,
-                    ),
-                    Text("Gunung Bromo"),
-                  ],
-                ),
-              ),
+                  ),
+                );
+              },
             );
-          },
-        ),
+          } else {
+            return const Center(child: Text("Error"));
+          }
+        },
       ),
     );
   }

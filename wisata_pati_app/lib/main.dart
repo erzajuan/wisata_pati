@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:wisata_pati_app/HalamanDuaTest.dart';
 import 'package:wisata_pati_app/Navigation/bloc/navigator_bloc.dart';
 import 'package:wisata_pati_app/SplashScreen/bloc/splash_screen_bloc.dart';
 import 'package:wisata_pati_app/SplashScreen/view/splash_screen.dart';
 
-import 'list_wisata/Pages/Screens/ListWisataScreens.dart';
+import 'list_wisata/bloc/ListWisataBloc.dart';
 
 void main() {
   runApp(const MyApp());
@@ -22,6 +21,9 @@ class MyApp extends StatelessWidget {
           create: (context) => SplashScreenBloc()..add(SplashScreenStarted()),
         ),
         BlocProvider<NavigatorBloc>(create: (context) => NavigatorBloc()),
+        BlocProvider<ListWisataBlocs>(
+          create: (context) => ListWisataBlocs(),
+        ),
       ],
       child: MaterialApp(
         title: 'Wisata Pati',
