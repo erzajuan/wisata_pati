@@ -12,6 +12,7 @@ dependencies:
   flutter:
     sdk: flutter
   equatable: ^2.0.5
+  google_fonts: ^5.1.0
 
 dev_dependencies:
   flutter_lints: 2.0.1
@@ -22,4 +23,5 @@ flutter:
   uses-material-design: true
   assets:
     - assets/
+    - assets/images/
 
