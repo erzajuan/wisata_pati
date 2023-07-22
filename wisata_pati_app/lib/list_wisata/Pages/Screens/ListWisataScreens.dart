@@ -91,7 +91,9 @@ class _ListWisataScreensState extends State<ListWisataScreens> {
                             const SizedBox(
                               height: 20,
                             ),
-                            Text("     ${data[index].destinationName}", style:ConstStyle.blackTextStyle(fontSize: 16, fontWeight: FontWeight.bold), ),
+                            Container(
+                                margin: const EdgeInsets.only(left: 8),
+                                child: Text("${data[index].destinationName}", style:ConstStyle.blackTextStyle(fontSize: 16, fontWeight: FontWeight.bold), )),
                           ],
                         ),
                       ),

@@ -3,10 +3,13 @@ import 'package:easy_image_viewer/easy_image_viewer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:wisata_pati_app/Template/view/spacer.dart';
 import 'package:wisata_pati_app/Template/view/template_scaffold.dart';
 import 'package:wisata_pati_app/detail/bloc/detail_bloc.dart';
 import 'package:wisata_pati_app/detail/bloc/detail_state.dart';
 import 'package:wisata_pati_app/detail/models/datum/datum.dart';
+
+import '../../../Template/constant/const_style.dart';
 
 class DetailPage extends StatelessWidget {
   final int index;
@@ -65,6 +68,23 @@ class DetailPage extends StatelessWidget {
                                     child: Image.network(
                                       imageURL,
                                       fit: BoxFit.cover,
+                                      loadingBuilder: (BuildContext context,
+                                          Widget child,
+                                          ImageChunkEvent? loadingProgress) {
+                                        if (loadingProgress == null) {
+                                          return child;
+                                        }
+                                        return SizedBox(
+                                          height: MediaQuery.of(context)
+                                                  .size
+                                                  .height *
+                                              1 /
+                                              3,
+                                          child: const Center(
+                                            child: CircularProgressIndicator(),
+                                          ),
+                                        );
+                                      },
                                     ),
                                   ),
                                 );
@@ -89,7 +109,7 @@ class DetailPage extends StatelessWidget {
                                   children: [
                                     Text(
                                       data[index].destinationName,
-                                      style: const TextStyle(
+                                      style: ConstStyle.blackTextStyle(
                                           fontSize: 24,
                                           fontWeight: FontWeight.bold),
                                     ),
@@ -110,6 +130,7 @@ class DetailPage extends StatelessWidget {
                                         icon: const Icon(Icons.map))
                                   ],
                                 ),
+                                const VSpacer(8),
                                 Row(
                                   children: [
                                     const Icon(
@@ -132,7 +153,7 @@ class DetailPage extends StatelessWidget {
                                 Container(
                                     margin: const EdgeInsets.only(
                                         left: 18.0, top: 18.0),
-                                    child: Text(data[index].description))
+                                    child: Text(data[index].description,style: ConstStyle.blackTextStyle())),
                               ],
                             ),
                           ),
