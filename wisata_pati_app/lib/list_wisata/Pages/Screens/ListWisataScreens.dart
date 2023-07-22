@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:wisata_pati_app/Template/constant/const_style.dart';
 
 import '../../../Navigation/bloc/navigator_bloc.dart';
 import '../../../detail/models/datum/datum.dart';
@@ -71,6 +72,18 @@ class _ListWisataScreensState extends State<ListWisataScreens> {
                                 clipBehavior: Clip.antiAlias,
                                 borderRadius: BorderRadius.circular(25),
                                 child: Image.network(
+                                  loadingBuilder: (BuildContext context,
+                                      Widget child,
+                                      ImageChunkEvent? loadingProgress) {
+                                    if (loadingProgress == null) {
+                                      return child;
+                                    }
+                                    return const SizedBox(
+                                      height: 200,
+                                      child: Center(
+                                          child: CircularProgressIndicator()),
+                                    );
+                                  },
                                   imageList[0],
                                 ),
                               ),
@@ -78,7 +91,7 @@ class _ListWisataScreensState extends State<ListWisataScreens> {
                             const SizedBox(
                               height: 20,
                             ),
-                            Text("     ${data[index].destinationName}"),
+                            Text("     ${data[index].destinationName}", style:ConstStyle.blackTextStyle(fontSize: 16, fontWeight: FontWeight.bold), ),
                           ],
                         ),
                       ),

@@ -8,7 +8,6 @@ import 'package:wisata_pati_app/list_wisata/Pages/Screens/ListWisataScreens.dart
 
 import '../../detail/pages/screens/detail_page.dart';
 import '../../list_wisata/bloc/ListWisataBloc.dart';
-import 'package:wisata_pati_app/Home/bloc/home_bloc.dart';
 import 'package:wisata_pati_app/ParentTab/view/parent_tab_screen.dart';
 
 part 'navigator_event.dart';
@@ -26,8 +25,8 @@ class NavigatorBloc extends Bloc<NavigatorEvent, NavigatorState> {
           builder: (context) => MultiBlocProvider(
             providers: [
               //placeholder
-              BlocProvider<HomeBloc>(
-                  create: (context) => HomeBloc()..add(HomeClicked())),
+              BlocProvider<ListWisataBlocs>(
+                  create: (context) => ListWisataBlocs()),
             ],
             child: ParentTabScreen(),
           ),

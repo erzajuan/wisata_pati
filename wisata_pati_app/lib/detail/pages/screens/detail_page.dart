@@ -1,18 +1,22 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:easy_image_viewer/easy_image_viewer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:wisata_pati_app/Template/view/template_scaffold.dart';
 import 'package:wisata_pati_app/detail/bloc/detail_bloc.dart';
 import 'package:wisata_pati_app/detail/bloc/detail_state.dart';
 import 'package:wisata_pati_app/detail/models/datum/datum.dart';
 
 class DetailPage extends StatelessWidget {
   final int index;
+
   const DetailPage({super.key, required this.index});
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Scaffold(
+      child: TemplateScaffold(
         appBar: AppBar(
           title: const Text("Detail Wisata"),
         ),
@@ -40,21 +44,32 @@ class DetailPage extends StatelessWidget {
                             autoPlayCurve: Curves.easeInOutCubicEmphasized,
                             height: MediaQuery.of(context).size.height * 1 / 3),
                         items: imageList.map((imageURL) {
-                          return Builder(
-                            builder: (BuildContext context) {
-                              return SizedBox(
-                                width: MediaQuery.of(context).size.width,
-                                child: ClipRRect(
-                                  borderRadius: const BorderRadius.only(
-                                      bottomLeft: Radius.circular(18),
-                                      bottomRight: Radius.circular(18)),
-                                  child: Image.network(
-                                    imageURL,
-                                    fit: BoxFit.cover,
-                                  ),
-                                ),
+                          return InkWell(
+                            onTap: () {
+                              showImageViewer(
+                                context,
+                                Image.network(imageURL).image,
+                                swipeDismissible: true,
+                                doubleTapZoomable: true,
+                                useSafeArea: true,
                               );
                             },
+                            child: Builder(
+                              builder: (BuildContext context) {
+                                return SizedBox(
+                                  width: MediaQuery.of(context).size.width,
+                                  child: ClipRRect(
+                                    borderRadius: const BorderRadius.only(
+                                        bottomLeft: Radius.circular(18),
+                                        bottomRight: Radius.circular(18)),
+                                    child: Image.network(
+                                      imageURL,
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
+                                );
+                              },
+                            ),
                           );
                         }).toList(),
                       ),
@@ -69,16 +84,28 @@ class DetailPage extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
                                   children: [
                                     Text(
                                       data[index].destinationName,
                                       style: const TextStyle(
-                                          fontSize: 24, fontWeight: FontWeight.bold),
+                                          fontSize: 24,
+                                          fontWeight: FontWeight.bold),
                                     ),
                                     IconButton(
                                         onPressed: () async {
                                           // LINK
+                                          final url = data[index].map;
+                                          final uri = Uri.parse(url);
+                                          if (!await launchUrl(
+                                            uri,
+                                            mode:
+                                                LaunchMode.externalApplication,
+                                          )) {
+                                            throw Exception(
+                                                'Could not launch $uri');
+                                          }
                                         },
                                         icon: const Icon(Icons.map))
                                   ],
@@ -103,8 +130,8 @@ class DetailPage extends StatelessWidget {
                                   color: Colors.black,
                                 ),
                                 Container(
-                                    margin:
-                                    const EdgeInsets.only(left: 18.0, top: 18.0),
+                                    margin: const EdgeInsets.only(
+                                        left: 18.0, top: 18.0),
                                     child: Text(data[index].description))
                               ],
                             ),
@@ -141,7 +168,8 @@ class DetailPage extends StatelessWidget {
                             const Expanded(
                               child: Text(
                                 "Virtual Tour",
-                                style: TextStyle(color: Colors.white, fontSize: 18),
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 18),
                               ),
                             ),
                             const SizedBox(
