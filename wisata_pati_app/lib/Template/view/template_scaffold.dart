@@ -20,18 +20,22 @@ class TemplateScaffold extends StatelessWidget {
   final bool? resizeToAvoidBottomInset;
   final bool primary = true;
   final DragStartBehavior drawerDragStartBehavior = DragStartBehavior.start;
-  final bool extendBody = false;
-  final bool extendBodyBehindAppBar = false;
+  final bool extendBody;
+  final bool extendBodyBehindAppBar;
   final Color? drawerScrimColor;
   final double? drawerEdgeDragWidth;
-  final bool drawerEnableOpenDragGesture = true;
-  final bool endDrawerEnableOpenDragGesture = true;
+  final bool drawerEnableOpenDragGesture;
+  final bool endDrawerEnableOpenDragGesture;
   final String? restorationId;
 
   const TemplateScaffold(
       {super.key,
       this.appBar,
       this.body,
+      this.extendBody = false,
+      this.extendBodyBehindAppBar = false,
+      this.drawerEnableOpenDragGesture = true,
+      this.endDrawerEnableOpenDragGesture = true,
       this.floatingActionButton,
       this.floatingActionButtonLocation,
       this.bottomNavigationBar,

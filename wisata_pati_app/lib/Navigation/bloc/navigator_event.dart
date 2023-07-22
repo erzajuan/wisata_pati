@@ -9,10 +9,10 @@ class NavigatePop extends NavigatorEvent {
   NavigatePop(this.context, {this.returns});
 }
 
-class NavigateToHalamanDuaTest extends NavigatorEvent {
+class NavigateToParentTab extends NavigatorEvent {
   final BuildContext context;
 
-  NavigateToHalamanDuaTest(this.context);
+  NavigateToParentTab(this.context);
 }
 
 class NavigateToHome extends NavigatorEvent {
