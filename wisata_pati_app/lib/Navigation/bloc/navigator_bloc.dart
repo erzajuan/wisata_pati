@@ -2,8 +2,10 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:meta/meta.dart';
+import 'package:wisata_pati_app/Home/bloc/home_bloc.dart';
 import 'package:wisata_pati_app/detail/bloc/detail_bloc.dart';
 import 'package:wisata_pati_app/detail/bloc/detail_event.dart';
+import 'package:wisata_pati_app/detail/models/datum/datum.dart';
 import 'package:wisata_pati_app/list_wisata/Pages/Screens/ListWisataScreens.dart';
 
 import '../../detail/pages/screens/detail_page.dart';
@@ -44,13 +46,14 @@ class NavigatorBloc extends Bloc<NavigatorEvent, NavigatorState> {
               BlocProvider<HomeBloc>(
                   create: (context) => HomeBloc()..add(HomeClicked())),
             ],
-            child: VirtualScreen(),
+            child: VirtualScreen(
+              data: event.data,
+            ),
           ),
         ),
       );
     });
     on<NavigateToHome>((event, emit) {
-
       Navigator.push(
         event.context,
         MaterialPageRoute(

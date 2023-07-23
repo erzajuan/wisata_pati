@@ -20,13 +20,11 @@ class ParentTabScreen extends StatefulWidget {
 class _ParentTabScreenState extends State<ParentTabScreen>
     with SingleTickerProviderStateMixin {
   final List<Widget> _listPage = [
-    const Placeholder(),
     const ListWisataScreens(),
     const AboutScreens(),
   ];
 
   final List<IconData> _icon = [
-    Icons.location_on_outlined,
     Icons.home_outlined,
     Icons.info_outline,
   ];
@@ -35,7 +33,7 @@ class _ParentTabScreenState extends State<ParentTabScreen>
 
   @override
   void initState() {
-    _tabController = TabController(vsync: this, length: 3, initialIndex: 1);
+    _tabController = TabController(vsync: this, length: 2, initialIndex: 1);
     _tabController.animateTo(1);
     super.initState();
   }

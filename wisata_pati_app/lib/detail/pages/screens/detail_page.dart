@@ -3,6 +3,7 @@ import 'package:easy_image_viewer/easy_image_viewer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:wisata_pati_app/Navigation/bloc/navigator_bloc.dart';
 import 'package:wisata_pati_app/Template/view/spacer.dart';
 import 'package:wisata_pati_app/Template/view/template_scaffold.dart';
 import 'package:wisata_pati_app/detail/bloc/detail_bloc.dart';
@@ -153,7 +154,8 @@ class DetailPage extends StatelessWidget {
                                 Container(
                                     margin: const EdgeInsets.only(
                                         left: 18.0, top: 18.0),
-                                    child: Text(data[index].description,style: ConstStyle.blackTextStyle())),
+                                    child: Text(data[index].description,
+                                        style: ConstStyle.blackTextStyle())),
                               ],
                             ),
                           ),
@@ -165,48 +167,55 @@ class DetailPage extends StatelessWidget {
                     alignment: Alignment.bottomCenter,
                     child: Padding(
                       padding: const EdgeInsets.all(18.0),
-                      child: Container(
-                        width: MediaQuery.of(context).size.width,
-                        height: 60,
-                        decoration: const BoxDecoration(
-                          color: Colors.black,
-                          borderRadius: BorderRadius.all(Radius.circular(18)),
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            const SizedBox(
-                              width: 20,
-                            ),
-                            const Icon(
-                              Icons.vrpano,
-                              color: Colors.white,
-                              size: 30,
-                            ),
-                            const SizedBox(
-                              width: 20,
-                            ),
-                            const Expanded(
-                              child: Text(
-                                "Virtual Tour",
-                                style: TextStyle(
-                                    color: Colors.white, fontSize: 18),
+                      child: InkWell(
+                        onTap: () {
+                          context
+                              .read<NavigatorBloc>()
+                              .add(NavigateToVirtual(context, data[index]));
+                        },
+                        child: Container(
+                          width: MediaQuery.of(context).size.width,
+                          height: 60,
+                          decoration: const BoxDecoration(
+                            color: Colors.black,
+                            borderRadius: BorderRadius.all(Radius.circular(18)),
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              const SizedBox(
+                                width: 20,
                               ),
-                            ),
-                            const SizedBox(
-                              width: 20,
-                            ),
-                            IconButton(
-                              icon: const Icon(
-                                Icons.arrow_forward,
+                              const Icon(
+                                Icons.vrpano,
                                 color: Colors.white,
-                                size: 20,
+                                size: 30,
                               ),
-                              onPressed: () {
-                                //LINK
-                              },
-                            ),
-                          ],
+                              const SizedBox(
+                                width: 20,
+                              ),
+                              const Expanded(
+                                child: Text(
+                                  "Virtual Tour",
+                                  style: TextStyle(
+                                      color: Colors.white, fontSize: 18),
+                                ),
+                              ),
+                              const SizedBox(
+                                width: 20,
+                              ),
+                              IconButton(
+                                icon: const Icon(
+                                  Icons.arrow_forward,
+                                  color: Colors.white,
+                                  size: 20,
+                                ),
+                                onPressed: () {
+                                  //LINK
+                                },
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                     ),
