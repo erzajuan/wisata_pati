@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import 'package:wisata_pati_app/Template/view/template_scaffold.dart';
+import 'package:wisata_pati_app/detail/models/datum/datum.dart';
 
 class VirtualScreen extends StatefulWidget {
-  const VirtualScreen({super.key});
+  final Datum data;
+  const VirtualScreen({super.key, required this.data});
 
   @override
   State<VirtualScreen> createState() => _VirtualScreenState();
@@ -52,7 +54,7 @@ class _VirtualScreenState extends State<VirtualScreen> {
   Widget build(BuildContext context) {
     return TemplateScaffold(
       appBar: AppBar(
-        title: Text(""),
+        title: Text("Virtual Tour ${widget.data.destinationName}"),
       ),
       body: SafeArea(child: WebViewWidget(controller: webViewController)),
     );

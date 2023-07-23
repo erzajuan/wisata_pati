@@ -17,8 +17,9 @@ class NavigateToParentTab extends NavigatorEvent {
 
 class NavigateToVirtual extends NavigatorEvent {
   final BuildContext context;
+  final Datum data;
 
-  NavigateToVirtual(this.context);
+  NavigateToVirtual(this.context, this.data);
 }
 
 class NavigateToHome extends NavigatorEvent {
@@ -29,8 +30,7 @@ class NavigateToHome extends NavigatorEvent {
 
 class NavigateToDetailWisata extends NavigatorEvent {
   final BuildContext context;
-  int index;
+  final int index;
 
   NavigateToDetailWisata(this.context, this.index);
 }
-
