@@ -9,6 +9,7 @@ import 'package:wisata_pati_app/list_wisata/Pages/Screens/ListWisataScreens.dart
 import '../../detail/pages/screens/detail_page.dart';
 import '../../list_wisata/bloc/ListWisataBloc.dart';
 import 'package:wisata_pati_app/ParentTab/view/parent_tab_screen.dart';
+import 'package:wisata_pati_app/virtual/view/virtual_screen.dart';
 
 part 'navigator_event.dart';
 part 'navigator_state.dart';
@@ -33,13 +34,28 @@ class NavigatorBloc extends Bloc<NavigatorEvent, NavigatorState> {
         ),
       );
     });
-    on<NavigateToHome>((event, emit) {
+    on<NavigateToVirtual>((event, emit) {
       Navigator.push(
         event.context,
         MaterialPageRoute(
           builder: (context) => MultiBlocProvider(
             providers: [
               //placeholder
+              BlocProvider<HomeBloc>(
+                  create: (context) => HomeBloc()..add(HomeClicked())),
+            ],
+            child: VirtualScreen(),
+          ),
+        ),
+      );
+    });
+    on<NavigateToHome>((event, emit) {
+
+      Navigator.push(
+        event.context,
+        MaterialPageRoute(
+          builder: (context) => MultiBlocProvider(
+            providers: [
               BlocProvider<ListWisataBlocs>(
                   create: (context) => ListWisataBlocs()),
             ],

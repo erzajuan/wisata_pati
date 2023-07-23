@@ -15,6 +15,12 @@ class NavigateToParentTab extends NavigatorEvent {
   NavigateToParentTab(this.context);
 }
 
+class NavigateToVirtual extends NavigatorEvent {
+  final BuildContext context;
+
+  NavigateToVirtual(this.context);
+}
+
 class NavigateToHome extends NavigatorEvent {
   final BuildContext context;
 

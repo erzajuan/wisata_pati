@@ -41,7 +41,7 @@ class SplashScreen extends StatelessWidget {
                     style: ConstStyle.whiteTextStyle(
                         fontSize: 40, fontWeight: FontWeight.w700),
                   ),
-                  VSpacer(60),
+                  VSpacer(80),
                   Image.asset(
                     "assets/images/logo_pati.png",
                     width: 308,
