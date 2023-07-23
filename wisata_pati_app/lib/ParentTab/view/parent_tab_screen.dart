@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:wisata_pati_app/Home/view/home_screen.dart';
 import 'package:wisata_pati_app/Navigation/bloc/navigator_bloc.dart';
-import 'package:wisata_pati_app/ParentTab/bloc/parent_tab_bloc.dart';
+import 'package:wisata_pati_app/parentTab/bloc/parent_tab_bloc.dart';
 import 'package:wisata_pati_app/Template/constant/const_style.dart';
 import 'package:wisata_pati_app/Template/view/spacer.dart';
 import 'package:wisata_pati_app/Template/view/template_scaffold.dart';
