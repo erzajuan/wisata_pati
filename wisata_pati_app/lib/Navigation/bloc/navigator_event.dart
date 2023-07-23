@@ -20,3 +20,17 @@ class NavigateToVirtual extends NavigatorEvent {
 
   NavigateToVirtual(this.context);
 }
+
+class NavigateToHome extends NavigatorEvent {
+  final BuildContext context;
+
+  NavigateToHome(this.context);
+}
+
+class NavigateToDetailWisata extends NavigatorEvent {
+  final BuildContext context;
+  int index;
+
+  NavigateToDetailWisata(this.context, this.index);
+}
+
