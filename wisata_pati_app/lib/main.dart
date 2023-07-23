@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         title: 'Wisata Pati',
         theme: ThemeData(
-          primarySwatch: ConstStyle.darkGreySwatch,
+          primarySwatch: ConstStyle.blackSwatch,
         ),
         home: SplashScreen(),
       ),
