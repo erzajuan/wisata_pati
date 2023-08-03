@@ -10,11 +10,9 @@ class DetailBlocs extends Bloc<DetailEvents, DetailState> {
     List<Datum>? data = [];
 
     on<DetailLoadEvents>((event, emit) async {
-      debugPrint("DetailLoadEvents");
       data = await DetailFetch().readJson();
       emit(DetailLoadingState());
       try {
-        debugPrint("AppLoadedState");
         emit(DetailLoadedState(data));
       } catch (e) {
         emit(DetailErrorState(e.toString()));

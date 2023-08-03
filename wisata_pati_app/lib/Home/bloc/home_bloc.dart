@@ -11,13 +11,11 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   HomeBloc() : super(HomeInitial()) {
     on<HomeClicked>((event, emit) async {
       emit(HomeLoadInProgress());
-      // await Future.delayed(const Duration(seconds: 1));
       final List<Datum>? data = await HomeService().readJson();
       try {
         emit(HomeLoadSuccess(data ?? []));
       } catch (e) {
-        debugPrint(e.toString());
-        emit(HomeLoadFailure("Server sedang error"));
+        emit(const HomeLoadFailure("Server sedang error"));
       }
     });
   }

@@ -12,6 +12,7 @@ class VirtualScreen extends StatefulWidget {
 }
 
 class _VirtualScreenState extends State<VirtualScreen> {
+  bool isLoading = true;
   late final WebViewController webViewController;
 
   @override
@@ -22,6 +23,10 @@ class _VirtualScreenState extends State<VirtualScreen> {
       ..setNavigationDelegate(
         NavigationDelegate(
           onProgress: (int progress) {
+            if (progress == 100) {
+              isLoading = false;
+              setState(() {});
+            }
             debugPrint("statement progress: $progress");
           },
           onPageStarted: (String url) {
@@ -45,8 +50,7 @@ class _VirtualScreenState extends State<VirtualScreen> {
           },
         ),
       )
-      ..loadRequest(Uri.parse(
-          'https://kuula.co/share/collection/7YykL?fs=1&vr=1&zoom=1&sd=1&initload=0&thumbs=1&info=0&logo=1&logosize=162'));
+      ..loadRequest(Uri.parse(widget.data.linkAr));
     super.initState();
   }
 
@@ -56,7 +60,12 @@ class _VirtualScreenState extends State<VirtualScreen> {
       appBar: AppBar(
         title: Text("Virtual Tour ${widget.data.destinationName}"),
       ),
-      body: SafeArea(child: WebViewWidget(controller: webViewController)),
+      body: SafeArea(
+          child: isLoading == true
+              ? const Center(
+                  child: CircularProgressIndicator(),
+                )
+              : WebViewWidget(controller: webViewController)),
     );
   }
 }

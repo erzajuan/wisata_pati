@@ -28,20 +28,13 @@ class HomeScreen extends StatelessWidget {
                   List<Datum>? data = state.data;
                   final List<String> imageList = data[index].imageUrl;
                   return InkWell(
-                    onTap: () {
-                      // context
-                      //     .read<NavigatorBloc>()
-                      //     .add(NavigateToDetailWisata(context, index));
-                    },
+                    onTap: () {},
                     child: Card(
                       borderOnForeground: true,
                       shadowColor: Colors.blue,
                       surfaceTintColor: Colors.green,
                       elevation: 5,
-                      // color: const Color(#193D7033),
-                      // color #193D7033
                       color: const Color(0x00d2dbea),
-
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(40),
                       ),

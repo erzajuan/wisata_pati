@@ -6,8 +6,6 @@ import 'package:wisata_pati_app/SplashScreen/bloc/splash_screen_bloc.dart';
 import 'package:wisata_pati_app/SplashScreen/view/splash_screen.dart';
 import 'package:wisata_pati_app/template/constant/const_style.dart';
 
-import 'list_wisata/bloc/ListWisataBloc.dart';
-
 void main() {
   runApp(const MyApp());
 }
@@ -30,7 +28,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: ConstStyle.blackSwatch,
         ),
-        home: SplashScreen(),
+        home: const SplashScreen(),
       ),
     );
   }

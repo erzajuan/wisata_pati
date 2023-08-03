@@ -7,11 +7,11 @@ import 'package:wisata_pati_app/parentTab/bloc/parent_tab_bloc.dart';
 import 'package:wisata_pati_app/Template/constant/const_style.dart';
 import 'package:wisata_pati_app/Template/view/spacer.dart';
 import 'package:wisata_pati_app/Template/view/template_scaffold.dart';
-import 'package:wisata_pati_app/about/pages/AboutScreens.dart';
-import 'package:wisata_pati_app/list_wisata/Pages/Screens/ListWisataScreens.dart';
+import 'package:wisata_pati_app/about/pages/about_screen.dart';
+import 'package:wisata_pati_app/list_wisata/Pages/Screens/list_wisata_screens.dart';
 
 class ParentTabScreen extends StatefulWidget {
-  ParentTabScreen({super.key});
+  const ParentTabScreen({super.key});
 
   @override
   State<ParentTabScreen> createState() => _ParentTabScreenState();

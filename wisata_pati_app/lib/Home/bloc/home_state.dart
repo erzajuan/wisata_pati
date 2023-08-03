@@ -14,11 +14,11 @@ class HomeLoadInProgress extends HomeState {}
 class HomeLoadSuccess extends HomeState {
   final List<Datum> data;
 
-  HomeLoadSuccess(this.data);
+  const HomeLoadSuccess(this.data);
 }
 
 class HomeLoadFailure extends HomeState {
   final String message;
 
-  HomeLoadFailure(this.message);
+  const HomeLoadFailure(this.message);
 }

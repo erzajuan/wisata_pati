@@ -34,134 +34,118 @@ class DetailPage extends StatelessWidget {
               final List<String> imageList = data![index].imageUrl;
               return Stack(
                 children: [
-                  Column(
-                    children: [
-                      // SizedBox(
-                      //   height: 8,
-                      // ),
-                      CarouselSlider(
-                        options: CarouselOptions(
-                            autoPlay: true,
-                            aspectRatio: 16 / 9,
-                            viewportFraction: 0.85,
-                            enlargeCenterPage: true,
-                            autoPlayCurve: Curves.easeInOutCubicEmphasized,
-                            height: MediaQuery.of(context).size.height * 1 / 3),
-                        items: imageList.map((imageURL) {
-                          return InkWell(
-                            onTap: () {
-                              showImageViewer(
-                                context,
-                                Image.network(imageURL).image,
-                                swipeDismissible: true,
-                                doubleTapZoomable: true,
-                                useSafeArea: true,
-                              );
-                            },
-                            child: Builder(
-                              builder: (BuildContext context) {
-                                return SizedBox(
-                                  width: MediaQuery.of(context).size.width,
-                                  child: ClipRRect(
-                                    borderRadius: const BorderRadius.only(
-                                        bottomLeft: Radius.circular(18),
-                                        bottomRight: Radius.circular(18)),
-                                    child: Image.network(
-                                      imageURL,
-                                      fit: BoxFit.cover,
-                                      loadingBuilder: (BuildContext context,
-                                          Widget child,
-                                          ImageChunkEvent? loadingProgress) {
-                                        if (loadingProgress == null) {
-                                          return child;
-                                        }
-                                        return SizedBox(
-                                          height: MediaQuery.of(context)
-                                                  .size
-                                                  .height *
-                                              1 /
-                                              3,
-                                          child: const Center(
-                                            child: CircularProgressIndicator(),
-                                          ),
-                                        );
-                                      },
-                                    ),
-                                  ),
+                  SingleChildScrollView(
+                    child: Column(
+                      children: [
+                        CarouselSlider(
+                          options: CarouselOptions(
+                              autoPlay: true,
+                              aspectRatio: 16 / 9,
+                              viewportFraction: 0.85,
+                              enlargeCenterPage: true,
+                              autoPlayCurve: Curves.easeInOutCubicEmphasized,
+                              height:
+                                  MediaQuery.of(context).size.height * 1 / 3),
+                          items: imageList.map((imageURL) {
+                            return InkWell(
+                              onTap: () {
+                                showImageViewer(
+                                  context,
+                                  Image.asset(imageURL).image,
+                                  swipeDismissible: true,
+                                  doubleTapZoomable: true,
+                                  useSafeArea: true,
                                 );
                               },
-                            ),
-                          );
-                        }).toList(),
-                      ),
-                      Align(
-                        alignment: Alignment.bottomCenter,
-                        child: SizedBox(
-                          // height: MediaQuery.of(context).size.height * 2 / 3,
-                          // width: double.infinity,
-                          child: Padding(
-                            padding: const EdgeInsets.all(18.0),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text(
-                                      data[index].destinationName,
-                                      style: ConstStyle.blackTextStyle(
-                                          fontSize: 24,
-                                          fontWeight: FontWeight.bold),
+                              child: Builder(
+                                builder: (BuildContext context) {
+                                  return SizedBox(
+                                    width: MediaQuery.of(context).size.width,
+                                    child: ClipRRect(
+                                      borderRadius: const BorderRadius.only(
+                                          bottomLeft: Radius.circular(18),
+                                          bottomRight: Radius.circular(18)),
+                                      child: Image.asset(
+                                        imageURL,
+                                        fit: BoxFit.cover,
+                                      ),
                                     ),
-                                    IconButton(
-                                        onPressed: () async {
-                                          // LINK
-                                          final url = data[index].map;
-                                          final uri = Uri.parse(url);
-                                          if (!await launchUrl(
-                                            uri,
-                                            mode:
-                                                LaunchMode.externalApplication,
-                                          )) {
-                                            throw Exception(
-                                                'Could not launch $uri');
-                                          }
-                                        },
-                                        icon: const Icon(Icons.map))
-                                  ],
-                                ),
-                                const VSpacer(8),
-                                Row(
-                                  children: [
-                                    const Icon(
-                                      Icons.location_on,
-                                      size: 18,
+                                  );
+                                },
+                              ),
+                            );
+                          }).toList(),
+                        ),
+                        Align(
+                          alignment: Alignment.bottomCenter,
+                          child: SizedBox(
+                            child: Padding(
+                              padding: const EdgeInsets.all(18.0),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Text(
+                                        data[index].destinationName,
+                                        style: ConstStyle.blackTextStyle(
+                                            fontSize: 24,
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                      IconButton(
+                                          onPressed: () async {
+                                            final url = data[index].map;
+                                            final uri = Uri.parse(url);
+                                            if (!await launchUrl(
+                                              uri,
+                                              mode: LaunchMode
+                                                  .externalApplication,
+                                            )) {
+                                              throw Exception(
+                                                  'Could not launch $uri');
+                                            }
+                                          },
+                                          icon: const Icon(Icons.map))
+                                    ],
+                                  ),
+                                  const VSpacer(8),
+                                  SizedBox(
+                                    width: ConstStyle.widthOfDevice(context),
+                                    child: Row(
+                                      children: [
+                                        const Icon(
+                                          Icons.location_on,
+                                          size: 18,
+                                        ),
+                                        Text(
+                                          data[index].location,
+                                          maxLines: 2,
+                                        )
+                                      ],
                                     ),
-                                    Text(
-                                      data[index].location,
-                                    )
-                                  ],
-                                ),
-                                const SizedBox(
-                                  height: 20,
-                                ),
-                                Container(
-                                  width: 80,
-                                  height: 5,
-                                  color: Colors.black,
-                                ),
-                                Container(
-                                    margin: const EdgeInsets.only(
-                                        left: 18.0, top: 18.0),
-                                    child: Text(data[index].description,
-                                        style: ConstStyle.blackTextStyle())),
-                              ],
+                                  ),
+                                  const SizedBox(
+                                    height: 20,
+                                  ),
+                                  Container(
+                                    width: 80,
+                                    height: 5,
+                                    color: Colors.black,
+                                  ),
+                                  Container(
+                                      margin: const EdgeInsets.only(
+                                          left: 0, top: 18.0),
+                                      child: Text(data[index].description,
+                                          style: ConstStyle.blackTextStyle())),
+                                ],
+                              ),
                             ),
                           ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                   Align(
                     alignment: Alignment.bottomCenter,
@@ -210,9 +194,7 @@ class DetailPage extends StatelessWidget {
                                   color: Colors.white,
                                   size: 20,
                                 ),
-                                onPressed: () {
-                                  //LINK
-                                },
+                                onPressed: () {},
                               ),
                             ],
                           ),

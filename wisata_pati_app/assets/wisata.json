@@ -1,37 +1,73 @@
 {
-  "status":"true",
+  "status": "true",
   "data": [
-  {
-    "id": "1",
-    "destinationName": "Guci",
-    "description": "Guci Hot Springs: Destinasi wisata air panas alami di Jawa Tengah, Indonesia. Suasana alam yang menenangkan dengan pemandian air panas dan pemandangan yang indah.",
-    "location": "Tegal, Jawa Tengah",
-    "map": "https://goo.gl/maps/rTsSkWpoXMMwXZNE6",
-    "imageUrl": [
-      "https://images.unsplash.com/photo-1520342868574-5fa3804e551c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6ff92caffcdd63681a35134a6770ed3b&auto=format&fit=crop&w=1951&q=80",
-      "https://images.unsplash.com/photo-1522205408450-add114ad53fe?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=368f45b0888aeb0b7b08e3a1084d3ede&auto=format&fit=crop&w=1950&q=80",
-      "https://images.unsplash.com/photo-1519125323398-675f0ddb6308?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=94a1e718d89ca60a6337a6008341ca50&auto=format&fit=crop&w=1950&q=80",
-      "https://images.unsplash.com/photo-1523205771623-e0faa4d2813d?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=89719a0d55dd05e2deae4120227e6efc&auto=format&fit=crop&w=1953&q=80",
-      "https://images.unsplash.com/photo-1508704019882-f9cf40e475b4?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=8c6e5e3aba713b17aa1fe71ab4f0ae5b&auto=format&fit=crop&w=1352&q=80",
-      "https://images.unsplash.com/photo-1519985176271-adb1088fa94c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a0c8d632e977f94e5d312d9893258f59&auto=format&fit=crop&w=1355&q=80"
-    ],
-    "linkAr": "https://goo.gl/maps/rTsSkWpoXMMwXZNE6"
-  },
-  {
-    "id": "2",
-    "destinationName": "oke2",
-    "description": "oke",
-    "location": "oke",
-    "map": "https://goo.gl/maps/rTsSkWpoXMMwXZNE6",
-    "imageUrl": [
-      "https://images.unsplash.com/photo-1519125323398-675f0ddb6308?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=94a1e718d89ca60a6337a6008341ca50&auto=format&fit=crop&w=1950&q=80",
-      "https://images.unsplash.com/photo-1520342868574-5fa3804e551c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6ff92caffcdd63681a35134a6770ed3b&auto=format&fit=crop&w=1951&q=80",
-      "https://images.unsplash.com/photo-1522205408450-add114ad53fe?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=368f45b0888aeb0b7b08e3a1084d3ede&auto=format&fit=crop&w=1950&q=80",
-      "https://images.unsplash.com/photo-1523205771623-e0faa4d2813d?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=89719a0d55dd05e2deae4120227e6efc&auto=format&fit=crop&w=1953&q=80",
-      "https://images.unsplash.com/photo-1508704019882-f9cf40e475b4?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=8c6e5e3aba713b17aa1fe71ab4f0ae5b&auto=format&fit=crop&w=1352&q=80",
-      "https://images.unsplash.com/photo-1519985176271-adb1088fa94c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a0c8d632e977f94e5d312d9893258f59&auto=format&fit=crop&w=1355&q=80"
-    ],
-    "linkAr": "https://goo.gl/maps/rTsSkWpoXMMwXZNE6"
-  }
-]
+    {
+      "id": "1",
+      "destinationName": "Wisata Agro Jollong",
+      "description": "Agrowisata Jolong Pati merupakan destinasi wisata alam yang terletak di Pati, Jawa Tengah. Ini adalah perkebunan kopi dengan pemandangan yang sejuk dan menyegarkan. Perkebunan ini sudah ada sejak zaman penjajahan Belanda dan dikembangkan oleh PT Perkebunan Nusantara dan pemerintah setempat sebagai tujuan wisata untuk meningkatkan pendapatan daerah di bidang pariwisata. Agrowisata Kebun Jolong merupakan satu diantara beberapa obyek wisata Pati yang juga berada di desa Sitiluhur, kecamatan Gembong.",
+      "location": "Desa Sitiluhur, Kecamatan Gembong, \nKabupaten Pati",
+      "map": "https://goo.gl/maps/ta4nVGP6W5P2StKR7",
+      "imageUrl": [
+        "assets/images/agro_jollong0.jpg",
+        "assets/images/agro_jollong1.jpg",
+        "assets/images/agro_jollong2.jpg",
+        "assets/images/agro_jollong3.jpg",
+        "assets/images/agro_jollong4.jpg",
+        "assets/images/agro_jollong5.jpg",
+        "assets/images/agro_jollong6.jpg",
+        "assets/images/agro_jollong7.jpg",
+        "assets/images/agro_jollong8.jpg",
+        "assets/images/agro_jollong9.jpg",
+        "assets/images/agro_jollong10.jpg",
+        "assets/images/agro_jollong11.jpg",
+        "assets/images/agro_jollong12.jpg",
+        "assets/images/agro_jollong13.jpg",
+        "assets/images/agro_jollong14.jpg"
+      ],
+      "linkAr": "https://orbix360.com/3FjOVx2Rp"
+    },
+    {
+      "id": "2",
+      "destinationName": "Bukit Naga",
+      "description": "Kawasan bukit naga ini memiliki hamparan kebun buah naga sekitar 10Ha. Pengunjung dapat berjalan berkeliling kebun melalui jalan setapak yang dibangun berundak-undak. Ketika musim panen tiba, pengunjung dapat melakukan wisata petik buah, yang tentunya harga buah naga disesuaikan dengan harga dipasar dan cenderung lebih murah. Tak hanya disuguhkan pemandangan pohon buah naga, pengunjung dapat menikmati keindahan alam sekitar melalui gardu pandang. Dari sinilah pengunjung akan dimanjakan pemandangan keindahan dua waduk (waduk gunung rowo dan waduk seloromo) dan hamparan kota Pati dari atas. Pengunjungpun dapat menikmati hamparan kebun kopi yang terdapat disekitar bukit naga. Bagi pecinta kopi, rasanya agak sedikit sayang apabila melewatkan secangkir kopi jolong. Kopi jolong terkenal dengan kopi robustanya. Kopi Jolong memiliki karakter rasa berat dengan sedikit asam, yang pada dasarnya rasa pahitnya lebih kuat dengan sedikit asam. Di area ini, tersedia kedai kecil yang menyediakan kopi jolong. Cukup dengan harga sekitar Rp.5.000,00 – Rp 6.000,00 pengunjung dapat menikmati secangkir kopi Jolong.\n\n\n\n",
+      "location": "Desa Sitiluhur, Kecamatan Gembong, \nKabupaten Pati",
+      "map": "https://goo.gl/maps/scwdRzejYC3uxeQQ9",
+      "imageUrl": [
+        "assets/images/bukit_naga0.jpg",
+        "assets/images/bukit_naga1.jpg",
+        "assets/images/bukit_naga2.jpg",
+        "assets/images/bukit_naga3.jpg",
+        "assets/images/bukit_naga4.jpg",
+        "assets/images/bukit_naga5.jpg",
+        "assets/images/bukit_naga6.jpg",
+        "assets/images/bukit_naga7.jpg",
+        "assets/images/bukit_naga8.jpg",
+        "assets/images/bukit_naga9.jpg",
+        "assets/images/bukit_naga10.jpg",
+        "assets/images/bukit_naga11.jpg",
+        "assets/images/bukit_naga12.jpg"
+      ],
+      "linkAr": "https://orbix360.com/gq2OB9-X_"
+    },
+    {
+      "id": "3",
+      "destinationName": "Hutan Pinus",
+      "description": "Hutan Pinus Pangonan merupakan destinasi wisata alam yang terletak di Pati, Jawa Tengah. Terletak di Pegunungan Muria, tepatnya di desa Pangonan, kecamatan Tlogowungu. Jarak dari kota kurang lebih 23 km, lokasi tersebut masuk kawasan KPH Regaloh RPH Gunungsari. Diarea pepohonan pinus terdapat tanaman kopi yang sengaja ditanam oleh penduduk sekitar untuk mendapatkan hasil yang lebih selain hasil dari pohon pinus tersebut. Selain itu daerah ini juga penghasil buah langsep, manggis, kopi lanang dan kopi deplok.",
+      "location": "Pegunungan Muria, Kabupaten Pati",
+      "map": "https://goo.gl/maps/yYT9k7d8MR7qXVDj9",
+      "imageUrl": [
+        "assets/images/hutan_pinus0.jpg",
+        "assets/images/hutan_pinus1.jpg",
+        "assets/images/hutan_pinus2.jpg",
+        "assets/images/hutan_pinus3.jpg",
+        "assets/images/hutan_pinus4.jpg",
+        "assets/images/hutan_pinus5.jpg",
+        "assets/images/hutan_pinus6.jpg",
+        "assets/images/hutan_pinus7.jpg",
+        "assets/images/hutan_pinus8.jpg",
+        "assets/images/hutan_pinus9.jpg"
+      ],
+      "linkAr": "https://orbix360.com/PCareMalT"
+    }
+  ]
 }

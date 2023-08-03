@@ -26,34 +26,31 @@ class SplashScreen extends StatelessWidget {
               height: ConstStyle.heightOfDevice(context),
               fit: BoxFit.cover,
             ),
-            Positioned(
-              top: 0,
-              left: 0,
-              bottom: 0,
-              right: 0,
+            Align(
+              alignment: Alignment.bottomCenter,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  VSpacer(60),
+                  const VSpacer(60),
                   Text(
                     "AR\nWISATA PATI",
                     textAlign: TextAlign.center,
                     style: ConstStyle.whiteTextStyle(
                         fontSize: 40, fontWeight: FontWeight.w700),
                   ),
-                  VSpacer(80),
+                  const VSpacer(80),
                   Image.asset(
                     "assets/images/logo_pati.png",
                     width: 308,
                   ),
-                  Spacer(),
+                  const Spacer(),
                   Text(
                     "Powered by dinas pariwisata dan olahraga",
                     style: ConstStyle.whiteTextStyle(
                       fontSize: 14,
                     ),
                   ),
-                  VSpacer(20),
+                  const VSpacer(20),
                 ],
               ),
             ),

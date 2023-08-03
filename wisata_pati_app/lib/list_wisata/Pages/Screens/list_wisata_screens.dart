@@ -4,9 +4,9 @@ import 'package:wisata_pati_app/Template/constant/const_style.dart';
 
 import '../../../Navigation/bloc/navigator_bloc.dart';
 import '../../../detail/models/datum/datum.dart';
-import '../../bloc/ListWisataBloc.dart';
-import '../../bloc/ListWisataEvent.dart';
-import '../../bloc/ListWisataState.dart';
+import '../../bloc/list_wisata_bloc.dart';
+import '../../bloc/list_wisata_event.dart';
+import '../../bloc/list_wisata_state.dart';
 
 class ListWisataScreens extends StatefulWidget {
   const ListWisataScreens({Key? key}) : super(key: key);
@@ -64,27 +64,17 @@ class _ListWisataScreensState extends State<ListWisataScreens> {
                                   BoxShadow(
                                       color: Colors.black54,
                                       blurRadius: 10,
-                                      // blurStyle: BlurStyle.outer,
                                       offset: Offset(0, 12)),
                                 ],
                               ),
                               child: ClipRRect(
                                 clipBehavior: Clip.antiAlias,
                                 borderRadius: BorderRadius.circular(25),
-                                child: Image.network(
-                                  loadingBuilder: (BuildContext context,
-                                      Widget child,
-                                      ImageChunkEvent? loadingProgress) {
-                                    if (loadingProgress == null) {
-                                      return child;
-                                    }
-                                    return const SizedBox(
-                                      height: 200,
-                                      child: Center(
-                                          child: CircularProgressIndicator()),
-                                    );
-                                  },
+                                child: Image.asset(
                                   imageList[0],
+                                  height: 200,
+                                  width: double.infinity,
+                                  fit: BoxFit.cover,
                                 ),
                               ),
                             ),
@@ -93,7 +83,12 @@ class _ListWisataScreensState extends State<ListWisataScreens> {
                             ),
                             Container(
                                 margin: const EdgeInsets.only(left: 8),
-                                child: Text("${data[index].destinationName}", style:ConstStyle.blackTextStyle(fontSize: 16, fontWeight: FontWeight.bold), )),
+                                child: Text(
+                                  data[index].destinationName,
+                                  style: ConstStyle.blackTextStyle(
+                                      fontSize: 16,
+                                      fontWeight: FontWeight.bold),
+                                )),
                           ],
                         ),
                       ),
