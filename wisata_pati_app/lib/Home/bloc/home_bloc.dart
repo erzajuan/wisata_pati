@@ -1,6 +1,5 @@
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:wisata_pati_app/Home/service/home_service.dart';
 import 'package:wisata_pati_app/detail/model/datum.dart';
 
